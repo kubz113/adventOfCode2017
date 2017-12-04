@@ -4,6 +4,10 @@ Created on Sat Dec  2 12:30:23 2017
 
 @author: kubz113
 """
+import numpy as np
+from io import StringIO
+
+
 
 excelData = """493	458	321	120	49	432	433	92	54	452	41	461	388	409	263	58
 961	98	518	188	958	114	1044	881	948	590	972	398	115	116	451	492
@@ -23,12 +27,27 @@ excelData = """493	458	321	120	49	432	433	92	54	452	41	461	388	409	263	58
 404	1757	358	2293	2626	87	613	95	1658	147	75	930	2394	2349	86	385"""
 
 
+dataArray = np.loadtxt(StringIO(excelData), int)
 
 
-sum = 0
-max = 0
-min = float("inf") 
-for i in range(0, len(excelData)-1):
-    sum += max(dataArray[i]) - min(dataArray[i])
+output = 0
+numCol = len(dataArray[0])
+for i in range(0, len(dataArray)):
+    found = False
+    for j in range(0, numCol):
+        currentNum = dataArray[i][j]
+        for k in range(j+1, numCol):
+            if(currentNum%dataArray[i][k] == 0):
+                output+=currentNum/dataArray[i][k]
+                found = True
+                break
+            elif(dataArray[i][k]%currentNum == 0):
+                output += dataArray[i][k]/currentNum
+                found = True
+                break
+        if(found):
+            break
+    
 
-print(sum)
+
+print(output)
