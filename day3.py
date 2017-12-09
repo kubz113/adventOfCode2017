@@ -36,52 +36,48 @@ print(curDistance)
 """Part Two"""
 d = {(0,0):1}
 
-dx = 1
-dy = 0
+
 
 segLen = 1
 
 x = 0
-y= 0 
+y= 0
+dx = 0
+dy = -1
 segPassed = 0
 
-for i in range(0,goal):
-    total = 0
-    x+=dx
-    y+=dy
-    segPassed+=1
-    
-    #Searhing the dictionary for already calcualted neighbors
-    if(d.get(x-1, y+1) !=None):
-        total+=d.get(x-1,y+1)
-    if(d.get(x-1, y) !=None):
-        total+=d.get(x-1,y)
-    if(d.get(x-1, y-1) !=None):
-        total+=d.get(x-1,y-1)
-    if(d.get(x, y+1) !=None):
-        total+=d.get(x,y+1)
-    if(d.get(x, y-1) !=None):
-        total+=d.get(x,y+1)
-    if(d.get(x+1, y+1) !=None):
-        total+=d.get(x+1,y+1)
-    if(d.get(x+1, y) !=None):
-        total+=d.get(x+1,y)
-    if(d.get(x+1, y-1) !=None):
-        total+=d.get(x+1,y-1)
-    if total>goal:
-        break
-    d[(x,y)] = total
-    
-    
-    if(segPassed == segLen):
-        segPassed = 0
-        buffer = dx
-        dx = -dy
-        dy = dx
-        if(dy == 0):
-            segLen+=1
-    
-    
+X=1000
+Y=1000
+
+for i in range(max(X, Y)**2):
+    total = 0;
+    if(i!=0):
+        if((x-1, y+1) in d):
+            total+=d[(x-1,y+1)]
+        if((x-1, y) in d):
+            total+=d[(x-1,y)]
+        if((x-1, y-1) in d):
+            total+=d[(x-1,y-1)]
+        if((x, y+1) in d):
+            total+=d[(x,y+1)]
+        if((x, y-1) in d):
+            total+=d[(x,y-1)]
+        if((x+1, y+1) in d):
+            total+=d[(x+1,y+1)]
+        if((x+1, y) in d):
+            total+=d[(x+1,y)]
+        if((x+1, y-1) in d):
+            total+=d[(x+1,y-1)]
+        if total>347991:
+            break
+        d[(x,y)] = total
+    if abs(x) == abs(y) and [dx,dy] != [1,0] or x>0 and y == 1-x:  
+        dx, dy = -dy, dx
+    if abs(x)>X/2 or abs(y)>Y/2:    # non-square
+        dx, dy = -dy, dx            # change direction
+        x, y = -y+dx, x+dy
+    x, y = x+dx, y+dy
+
 print(total)   
     
     
