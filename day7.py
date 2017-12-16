@@ -31,5 +31,7 @@ print(base)
             
 with open("day7.txt") as textFile:
     stacks = [line.replace(',', '').replace('->', '').split() for line in textFile]
-    
-print(stacks)
+
+weights = {}    
+for i in range(len(stacks)):
+    weights.add
