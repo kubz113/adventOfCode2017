@@ -52,3 +52,34 @@ Python 3 solution code to the Advent of Code 2017 Challenge
 
 [Day 10 Solution](day10.py)
 
+### Day 11
+
+[Day11 Solution](day11.py)
+
+[Day 11 Input](day11.txt)
+
+### Day 12
+
+[Day 12 Solution](day12.py)
+
+[Day 12 Input](day12.txt)
+
+### Day 13
+
+[Day 13 Solution](day13.py)
+
+[Day 13 Input](day13.txt)
+
+### Day 14
+
+TBD
+
+### Day 15
+
+[Day 15 Solution](day15.py)
+
+### Day 16
+
+[Day 16 Solution](day16.py)
+
+[Day 16 Input](day16.txt)
