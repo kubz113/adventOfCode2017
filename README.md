@@ -83,3 +83,7 @@ TBD
 [Day 16 Solution](day16.py)
 
 [Day 16 Input](day16.txt)
+
+### Day 17
+
+[Day 17 Solution](day17.py)
